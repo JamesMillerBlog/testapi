@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    fetch('https://api.sportradar.us/hockey-t1/ice/en/schedules/2016-12-05/schedule.xml?api_key={ne8c9ygtz9ne7jkw54vy3kgj}')
+    // fetch('https://ghibliapi.herokuapp.com/films')
+    .then(res => res.json())
+    .then((data) => {
+        console.log(data);
+      })
+      .catch(console.log)
+    console.log("mounted");
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
